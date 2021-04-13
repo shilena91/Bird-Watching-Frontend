@@ -1,0 +1,47 @@
+body {
+	background: #f2f2f2;
+}
+
+.sideBar {
+	width: 350px;
+	right: 0;
+	top: 0;
+	position: absolute;
+	overflow: auto;
+	height: 80%;
+	border-left: double;
+	padding: 8px;
+}
+
+ul {
+	list-style: none;
+	padding-inline-start: 20px;
+}
+
+.grid {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(4, 25%);
+	padding: 5px;
+	margin-right: 26%;
+	height: 100%;
+}
+
+.bird {
+	display: grid;
+	grid-template-rows: auto 60px;
+	background: white;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.name {
+	border-bottom: black double 1px;
+	padding: 0 8px 8px 8px;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+button {
+	cursor: pointer;
+}
