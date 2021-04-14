@@ -25,6 +25,7 @@ function App() {
 		);
 	}, []);
 
+	// Use useCallback to keep the same function object as long as "birds" is not changed
 	const addNewObservation = useCallback(
 		(birdName: string, birdId: number) => {
 			if (
@@ -34,7 +35,6 @@ function App() {
 			) {
 				networkService.addNewObservation(birdId).then(
 					(data: IObservation) => {
-						console.log(data);
 						var bird: IBird = birds.find((b) => b.id === birdId)!;
 						bird.observations.push(data);
 						bird.numberOfObservations += 1;
@@ -49,10 +49,10 @@ function App() {
 		[birds]
 	);
 
+	// called when user submit new bird
 	const handleAddSubmit = (newBirdName: string): void => {
 		networkService.addNewBird(newBirdName).then(
 			(data: IBird) => {
-				console.log(`hehe ${data.birdName}`);
 				setBirds([...birds, data]);
 			},
 			(error: Error) => {
@@ -68,7 +68,7 @@ function App() {
 	} else {
 		return (
 			<div>
-				<Birds ibirds={birds} event={addNewObservation} />
+				<Birds birdsProp={birds} event={addNewObservation} />
 				<Report birdsProp={birds} />
 
 				<button

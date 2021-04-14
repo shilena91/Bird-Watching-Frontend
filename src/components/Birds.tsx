@@ -21,7 +21,6 @@ const Observation = ({
 
 	useEffect(() => {
 		setNumOfObservations(initialNumberOfObservations);
-		console.log('iNumOfOb change');
 	}, [initialNumberOfObservations]);
 
 	return (
@@ -40,17 +39,16 @@ const Observation = ({
 };
 
 interface BirdsProps {
-	ibirds: IBird[];
+	birdsProp: IBird[];
 	event: (birdName: string, birdId: number) => void;
 }
 
-const Birds = ({ ibirds, event }: BirdsProps) => {
-	const [birds, setBirds] = useState(ibirds);
+const Birds = ({ birdsProp, event }: BirdsProps) => {
+	const [birds, setBirds] = useState<IBird[]>(birdsProp);
 
 	useEffect(() => {
-		setBirds(ibirds);
-		console.log('ibirds change');
-	}, [ibirds]);
+		setBirds(birdsProp);
+	}, [birdsProp]);
 
 	const renderBirds = () => {
 		return birds.map((bird, i) => {

@@ -32,7 +32,7 @@ const Report = ({ birdsProp }: ReportProps) => {
 		return first.createdAt.localeCompare(second.createdAt);
 	});
 
-	const rows = () => {
+	const renderRows = () => {
 		return allObservations.map((observation, i) => {
 			return (
 				<ul key={observation.id}>
@@ -46,7 +46,7 @@ const Report = ({ birdsProp }: ReportProps) => {
 		});
 	};
 
-	return <div className="sideBar">{rows()}</div>;
+	return <div className="sideBar">{renderRows()}</div>;
 };
 
 export default Report;
